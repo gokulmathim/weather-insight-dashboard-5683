@@ -1,75 +1,49 @@
-# Nuxt Minimal Starter
+# Weather Insight Dashboard (Nuxt 3)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A modern, minimalistic weather dashboard built with Nuxt 3. Features include:
+- Display current weather for user-selected locations
+- Hourly and weekly (7-day) forecast views
+- City search bar with geocoding
+- Weather visualization via charts (Chart.js)
+- Responsive light theme with clean, accessible UI
 
-## Setup
+## Tech
+- Nuxt 3, Vue 3
+- Chart.js + vue-chartjs
+- Server routes proxying OpenWeatherMap APIs (secure env usage)
+- TypeScript, Vite
 
-Make sure to install dependencies:
+## Environment Variables
+Create a `.env` file based on `.env.example`:
+
+```
+WEATHER_API_KEY=your_openweathermap_api_key_here
+# WEATHER_API_BASE_URL=https://api.openweathermap.org
+```
+
+If `WEATHER_API_KEY` is not set, the app runs in demo mode with mock data.
+
+## Install
 
 ```bash
 # npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Run
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+# http://localhost:3000
 ```
 
-## Production
-
-Build the application for production:
+## Build
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Notes
+- All external API communication happens server-side via `/api` routes using runtimeConfig. Keys are never exposed to the client.
+- Saved locations are persisted in localStorage.
